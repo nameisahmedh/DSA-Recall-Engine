@@ -151,7 +151,7 @@ node index.js
 # Should show: "Groq API key: ✓ loaded"
 
 # Terminal 2 — Start the client
-cd client/client
+cd client
 npm run dev
 # Should show: "Local: http://localhost:5173"
 ```
@@ -160,28 +160,28 @@ Also make sure **Anki is open** in the background.
 
 ### Step 6: Use It!
 
-1. Open **http://localhost:5173** in your browser
-2. Check the **"Anki connected"** badge is green ✅ (if red, open Anki)
-3. Select a **topic** from the dropdown (e.g. Arrays)
-4. Fill in your solved problem details — name, approach, mistakes, complexity
-5. Click **Generate & Push →**
-6. Wait a few seconds — AI generates 6 flashcards and pushes them to Anki
-7. Open **Anki** → you'll see a new deck like `DSA Recall Engine::Arrays` with your cards!
+1.  Open **http://localhost:5173** in your browser
+2.  Check the **"Anki connected"** badge is green ✅ (if red, open Anki)
+3.  Select a **topic** from the dropdown (e.g. Arrays)
+4.  Fill in your solved problem details — name, approach, mistakes, complexity
+5.  Click **Generate & Push →**
+6.  Wait a few seconds — AI generates 6 flashcards and pushes them to Anki
+7.  Open **Anki** → you'll see a new deck like `DSA Recall Engine::Arrays` with your cards!
 
 ### Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| Badge shows "Anki disconnected" | Make sure Anki is open with AnkiConnect add-on installed |
-| "Groq API key missing" | Check that `server/.env` has `GROQ_API_KEY=gsk_...` |
-| "Rate limit reached" | Wait 1 minute and try again (free tier: 30 req/min) |
+| Problem                   | Solution                                                    |
+| ------------------------- | ----------------------------------------------------------- |
+| Badge shows "Anki disconnected" | Make sure Anki is open with AnkiConnect add-on installed    |
+| "Groq API key missing"    | Check that `server/.env` has `GROQ_API_KEY=gsk_...`         |
+| "Rate limit reached"      | Wait 1 minute and try again (free tier: 30 req/min)         |
 | Cards not appearing in Anki | Click the deck list refresh button in Anki, or close and reopen Anki |
 
 ## 📁 Project Structure
 
 ```
 dsa-engine/
-├── client/client/          # React frontend (Vite)
+├── client/                 # React frontend (Vite)
 │   ├── src/
 │   │   ├── App.jsx         # Main component + form + Anki status
 │   │   ├── App.css         # Premium dark theme styling
