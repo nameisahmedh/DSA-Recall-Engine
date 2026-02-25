@@ -86,42 +86,96 @@ Topics follow the [Striver A2Z DSA Sheet](https://takeuforward.org/strivers-a2z-
 | **AI Model** | Llama 3.3 70B via [Groq](https://groq.com) (free, open-source) |
 | **Flashcards** | [AnkiConnect](https://ankiweb.net/shared/info/2055492159) (local REST API) |
 
-## 🚀 Getting Started
+## 🚀 Getting Started (Step-by-Step)
 
-### Prerequisites
+> **This is a local tool** — it runs on your machine and connects to your local Anki app. No cloud deployment needed.
 
-- [Node.js](https://nodejs.org/) (v18+)
-- [Anki](https://apps.ankiweb.net/) desktop app
-- [AnkiConnect add-on](https://ankiweb.net/shared/info/2055492159) — open Anki → Tools → Add-ons → Get Add-ons → paste code `2055492159`
-- Free [Groq API key](https://console.groq.com/keys)
+### Step 1: Install Prerequisites
 
-### Setup
+| Tool | How to Get It |
+|------|---------------|
+| **Node.js** (v18+) | Download from [nodejs.org](https://nodejs.org/) |
+| **Anki** (desktop app) | Download from [apps.ankiweb.net](https://apps.ankiweb.net/) |
+| **Groq API Key** (free) | Sign up at [console.groq.com](https://console.groq.com) → API Keys → Create |
+
+### Step 2: Install AnkiConnect Add-on
+
+AnkiConnect is a plugin that lets this app communicate with Anki.
+
+1. Open **Anki**
+2. Go to **Tools → Add-ons → Get Add-ons...**
+3. Paste this code: `2055492159`
+4. Click **OK** and **restart Anki**
+
+> AnkiConnect runs silently in the background on port `8765` whenever Anki is open.
+
+### Step 3: Clone & Install
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/dsa-engine.git
-cd dsa-engine
-
-# Server
-cd server
-npm install
-echo "GROQ_API_KEY=your_key_here" > .env
-node index.js
-
-# Client (new terminal)
-cd client/client
-npm install
-npm run dev
+git clone https://github.com/nameisahmedh/DSA-Recall-Engine.git
+cd DSA-Recall-Engine
 ```
 
-### Usage
+**Install server dependencies:**
+```bash
+cd server
+npm install
+```
 
-1. Open **Anki** (AnkiConnect starts automatically)
-2. Go to **http://localhost:5173**
-3. Verify the **"Anki connected"** badge is green ✅
-4. Select a **topic**, fill in the problem details
-5. Click **Generate & Push**
-6. Open Anki → check `DSA Recall Engine::YourTopic` deck
+**Install client dependencies:**
+```bash
+cd ../client/client
+npm install
+```
+
+### Step 4: Add Your Groq API Key
+
+Create a `.env` file inside the `server/` folder:
+
+```
+GROQ_API_KEY=gsk_your_actual_key_here
+```
+
+> Get your free key from [console.groq.com/keys](https://console.groq.com/keys). It's free forever with 30 requests/min.
+
+### Step 5: Run the App
+
+You need **3 things running** — Anki, the server, and the client:
+
+```bash
+# Terminal 1 — Start the server
+cd server
+node index.js
+# Should show: "Server running at http://localhost:3001"
+# Should show: "Groq API key: ✓ loaded"
+
+# Terminal 2 — Start the client
+cd client/client
+npm run dev
+# Should show: "Local: http://localhost:5173"
+```
+
+Also make sure **Anki is open** in the background.
+
+### Step 6: Use It!
+
+1. Open **http://localhost:5173** in your browser
+2. Check the **"Anki connected"** badge is green ✅ (if red, open Anki)
+3. Select a **topic** from the dropdown (e.g. Arrays)
+4. Fill in your solved problem details — name, approach, mistakes, complexity
+5. Click **Generate & Push →**
+6. Wait a few seconds — AI generates 6 flashcards and pushes them to Anki
+7. Open **Anki** → you'll see a new deck like `DSA Recall Engine::Arrays` with your cards!
+
+### Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Badge shows "Anki disconnected" | Make sure Anki is open with AnkiConnect add-on installed |
+| "Groq API key missing" | Check that `server/.env` has `GROQ_API_KEY=gsk_...` |
+| "Rate limit reached" | Wait 1 minute and try again (free tier: 30 req/min) |
+| Cards not appearing in Anki | Click the deck list refresh button in Anki, or close and reopen Anki |
 
 ## 📁 Project Structure
 
