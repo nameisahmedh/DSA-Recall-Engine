@@ -1,0 +1,84 @@
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Claude / Notion / Figma palette */
+  --bg-primary: #faf9f7;
+  --bg-secondary: #ffffff;
+  --bg-hover: #f5f3ef;
+  --bg-accent: #f0ede8;
+  --bg-input: #faf9f7;
+
+  --text-primary: #1b1b18;
+  --text-secondary: #5c5c57;
+  --text-tertiary: #a3a39e;
+  --text-label: #37352f;
+
+  --border-light: #e8e5df;
+  --border-medium: #d4d0c8;
+
+  --accent: #d97706;
+  --accent-hover: #b45309;
+  --accent-soft: rgba(217, 119, 6, 0.07);
+
+  --success: #227a4b;
+  --success-soft: rgba(34, 122, 75, 0.07);
+
+  --shadow-xs: 0 1px 1px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.07);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  --transition: 150ms ease;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px 72px;
+}
+
+#root {
+  width: 100%;
+  max-width: 620px;
+}
+
+::selection {
+  background-color: rgba(217, 119, 6, 0.12);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 99px;
+}

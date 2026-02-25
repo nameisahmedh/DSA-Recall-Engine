@@ -1,0 +1,319 @@
+/* ── Header ── */
+.app-header {
+  margin-bottom: 32px;
+  padding-left: 2px;
+}
+
+.app-header .icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.app-header .icon-row .emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.app-header .subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ── Form Card ── */
+.form-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+
+.form-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Section Label (Notion-style) ── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 18px;
+}
+
+.section-label .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── Input Groups (Figma-clean) ── */
+.field-group {
+  margin-bottom: 18px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-label);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+
+.field-group input,
+.field-group textarea,
+.field-group select {
+  width: 100%;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.field-group input:hover,
+.field-group textarea:hover,
+.field-group select:hover {
+  border-color: var(--border-medium);
+}
+
+.field-group input:focus,
+.field-group textarea:focus,
+.field-group select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  background: var(--bg-secondary);
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.field-group textarea {
+  min-height: 72px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.field-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a3a39e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+/* ── Row Grid ── */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: 22px 0;
+}
+
+/* ── Submit Button (Claude-style) ── */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 20px;
+  margin-top: 4px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.submit-btn:hover {
+  background: #333330;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-0.5px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+  background: #1b1b18;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submit-btn .arrow {
+  font-size: 1rem;
+  transition: transform var(--transition);
+}
+
+.submit-btn:hover .arrow {
+  transform: translateX(2px);
+}
+
+/* ── Status Toast ── */
+.toast {
+  margin-top: 14px;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+  animation: slideUp 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toast.success {
+  background: var(--success-soft);
+  color: var(--success);
+  border: 1px solid rgba(34, 122, 75, 0.12);
+}
+
+.toast.error {
+  background: rgba(220, 38, 38, 0.05);
+  color: #c53030;
+  border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Anki Status Badge ── */
+.anki-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 99px;
+  letter-spacing: 0.01em;
+}
+
+.anki-badge.connected {
+  background: var(--success-soft);
+  color: var(--success);
+  border: 1px solid rgba(34, 122, 75, 0.12);
+}
+
+.anki-badge.disconnected {
+  background: rgba(220, 38, 38, 0.05);
+  color: #c53030;
+  border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.anki-badge .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.anki-badge.connected .status-dot {
+  background: var(--success);
+  box-shadow: 0 0 4px rgba(34, 122, 75, 0.4);
+}
+
+.anki-badge.disconnected .status-dot {
+  background: #c53030;
+  box-shadow: 0 0 4px rgba(220, 38, 38, 0.3);
+}
+
+/* ── Spinner ── */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Footer ── */
+.app-footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.01em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 20px;
+    border-radius: var(--radius-md);
+  }
+}
